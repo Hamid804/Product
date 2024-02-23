@@ -11,7 +11,7 @@ public class ProductController {
 
 	@GetMapping("/person")
 	public ResponseEntity<PersonDto> getPerson() {
-		final PersonDto personDto = new PersonDto("Hamid", "NKE", 25);
+		final PersonDto personDto = new PersonDto("Hamid", "Narkatiaganj", 25);
 
 		return ResponseEntity.ok(personDto);
 	}
