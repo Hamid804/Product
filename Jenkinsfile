@@ -17,12 +17,46 @@ pipeline {
 			}
 		}
 		
-		stage('run this with specific branch') {
+		stage('Build') {
+			steps {
+				bat 'mvn clean install'
+			}
+		}
+		
+		stage('Test') {
+			steps {
+				bat 'mvn test'
+			}
+			post {
+				always {
+					junit 'target/surefire-reports/*.xml'
+				}
+			}
+		}
+		
+		stage('Build Docker') {
 			when {
-				branch "feature/*"
+				branch "master"
 			}
 			steps {
-				echo "only for feature branch"
+				script {
+					bat 'docker build -t backend/product-service .'
+				}
+			}
+		}
+		
+		stage('Push to DockerHub') {
+			when {
+				branch "master"
+			}
+			steps {
+				script {
+					withCredentials([string(credentialsId: 'dockerhub-password', variable: 'dockerhubpwd')]) {
+						bat 'docker login -u hamid804 -p ${dockerhubpwd}'
+					}
+					
+					bat 'docker push backend/product-service'
+				}
 			}
 		}
 	}
