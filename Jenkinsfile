@@ -51,10 +51,8 @@ pipeline {
 			}
 			steps {
 				script {
-					withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-						bat 'docker login -u hamid804 -p ${dockerhubpwd}'
-					}
-					
+					// withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {}
+					bat 'docker login -u hamid804 -p hamid50028'
 					bat 'docker push backend/product-service'
 				}
 			}
