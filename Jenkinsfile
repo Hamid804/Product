@@ -42,6 +42,14 @@ pipeline {
 				}
 			}
 		}
+		
+		stage('Build Docker') {
+			steps {
+				script {
+					bat 'docker build -t backend/product-service .'
+				}
+			}
+		}
 	}
 }
 
