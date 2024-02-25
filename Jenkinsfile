@@ -41,6 +41,7 @@ pipeline {
 			steps {
 				script {
 					bat 'docker build -t hamid804/products:product-service-image .'
+					bat 'docker system prune -f'
 				}
 			}
 		}
