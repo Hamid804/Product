@@ -5,6 +5,9 @@ jobs:
   notify-jenkins:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+      
       - name: Kick jenkins
         uses: Hamid804/product-jenkins-gateway-action@main2
         with:
