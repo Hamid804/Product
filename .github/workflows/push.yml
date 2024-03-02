@@ -6,6 +6,6 @@ jobs:
     runs-on: gac
     steps:
       - name: Kick jenkins
-        uses: Hamid804/product-jenkins-gateway-action@main
+        uses: Hamid804/product-jenkins-gateway-action@master
         with:
           jenkins-url: http://20.244.84.139:8080/
