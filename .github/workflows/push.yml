@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is product-service GitHub Actions 🚀
 on: [push, pull_request]
 jobs:
   notify-jenkins:
-    runs-on: gac
+    runs-on: ubuntu-latest
     steps:
       - name: Kick jenkins
         uses: Hamid804/product-jenkins-gateway-action@master
