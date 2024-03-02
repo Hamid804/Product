@@ -1,0 +1,11 @@
+name: product-service jenkins-runner
+run-name: ${{ github.actor }} is product-service GitHub Actions 🚀
+on: [push, pull_request]
+jobs:
+  notify-jenkins:
+    runs-on: gac
+    steps:
+      - name: Kick jenkins
+        uses: Hamid804/product-jenkins-gateway-action
+        with:
+          jenkins-url: http://20.244.84.139:8080/
