@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Kick jenkins
-        uses: Hamid804/product-jenkins-gateway1-action@master
+        uses: Hamid804/product-jenkins-gateway-action@master
         with:
           jenkins-url: http://20.244.84.139:8080
